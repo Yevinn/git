@@ -1,7 +1,8 @@
-function getRandomNumber() {
-  var randomNumber = Math.floor( Math.random() * 6 ) + 1; 
-    return randomNumber;
+function getRandomNumber(upper) {
+  var randomNumber = Math.floor( Math.random() * upper ) + 1; 
+  return randomNumber;
 }
-alert(getRandomNumber());
-console.log(getRandomNumber());
-var dieRoll = getRandomNumber();
+console.log(getRandomNumber(6));
+console.log(getRandomNumber(100));
+console.log(getRandomNumber(10000));
+console.log(getRandomNumber(2));
