@@ -7,28 +7,36 @@ var questionsRight= [];
 var questionsWrong = [];
 var answerRight = 0;
 var answerWrong = 0;
-var message;
+var html;
 
 function print(message) {
-  document.write(message);
+  var outputDiv = document.getElementById('output');
+  outputDiv.innerHTML = message;
+}
+function buildList( arr ){
+    var listHTML = '<ol>';
+    for (var i = 0; i < arr.length; i+=1){
+      listHTML += '<li>' + arr[i] + '</li>';
+    }
+    listHTML += '</ol>';
+    return listHTML;
 }
 
 for (var i =0; i < quiz.length; i +=1){
-  answer = prompt(quiz[i][0]);
-  if( answer == quiz[i][1]){
-    questionsRight += quiz[i][0];
+  answer = parseInt(prompt(quiz[i][0]));
+  if( answer === quiz[i][1]){
+    questionsRight.push(quiz[i][0]);
     answerRight +=1;
   } else{
-    questionsWrong += quiz[i][0];
+    questionsWrong.push(quiz[i][0]);
     answerWrong +=1;
   }
 }
-if(answerRight >= quiz.length){
-  message = '<h1>Congrats</h1>' + '<p>You got ' + answerRight + ' questions right.</p>';
-} else if( answerRight >= quiz.length - 1){
-  message = '<h1>Almost</h1>' + '<p>You got ' + answerRight + ' questions right.</p>';
-}else{
-  message = '<h1>Better Luck Next Time</h1>' + '<p>You only got ' + answerRight + ' questions right.</p>';
-}
 
-print(message);
+html = 'You got ' + answerRight + ' question(s) right.';
+html += '<h2>You go these questions correct:</h2>';
+html+= buildList(questionsRight);
+html+='<h2>You go these questions wrong:</h2>';
+html+= buildList(questionsWrong);
+
+print(html);
