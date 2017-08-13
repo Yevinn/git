@@ -1,3 +1,5 @@
+
+/*The point of this code is to create a simple code, then check if the questions are right, and output what questions are right and which ones are wrong */
 var quiz = [
   ['How many states are in the United States?', 50],
   ['How many legs does an insect have?', 6],
