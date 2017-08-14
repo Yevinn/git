@@ -8,12 +8,12 @@ function print(messag){
 
 while (true){
   search = prompt("Search student records: type a name [Jody] (or type 'quit' to end)")
-  if ( search === 'quit'){
+  if (search === null ||  search.toLowerCase() === 'quit'){
     break;
   }else{
     for(var i = 0; i < students.length; i+=1){
+      student = students[i];
       if(search === students[i].name){
-        student = students[i];
         message += '<h2>Student: ' + student.name + '</h2>';
         message+= '<p>Track: ' + student.track + '</p>';
         message+= '<p>Achievement: ' + student.achievements + '</p>';
@@ -21,6 +21,7 @@ while (true){
         break;
       }else {
         message += '<p>The search ' + search + ' didn\'t load anything.</p>'
+        break;
       }
     }
   }
