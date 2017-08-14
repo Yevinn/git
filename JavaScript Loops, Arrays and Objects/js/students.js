@@ -1,6 +1,6 @@
 var students = [
   {
-    name: 'Stink Pete',
+    name: 'Stinky Pete',
     track: 'iOS',
     achievements: 45,
     points: 32,
@@ -29,4 +29,4 @@ var students = [
     achievements: 9999,
     points: 9999,
   }
-]
+];
